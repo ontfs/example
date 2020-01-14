@@ -15,7 +15,9 @@
 /File_FrontEnd/.idea
 /File_FrontEnd/.vscode
 /File_FrontEnd/*.suo
-/File_FrontEnd*.ntvs*
-/File_FrontEnd*.njsproj
-/File_FrontEnd*.sln
-/File_FrontEnd*.sw?
+/File_FrontEnd/*.ntvs*
+/File_FrontEnd/*.njsproj
+/File_FrontEnd/*.sln
+/File_FrontEnd/*.sw?
+/File_FrontEnd/rele.js
+
