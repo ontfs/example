@@ -20,3 +20,5 @@
 /File_FrontEnd/*.sln
 /File_FrontEnd/*.sw?
 
+.idea
+test
