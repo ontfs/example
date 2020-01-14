@@ -41,7 +41,6 @@ fileServer.interceptors.response.use(
     // console.log(rest)
     if (rest) {
       if (rest.status === 400) {
-        // 提示错误
         Message({ message: rest.data.desc, type: 'error' })
       }
     } else {

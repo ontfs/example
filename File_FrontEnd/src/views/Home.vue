@@ -135,28 +135,7 @@ export default {
         ]
       },
       fileObject: null,
-      tableData: [
-        // {
-        //   fileName: '2016-05-02',
-        //   createTime: '王小虎',
-        //   fileHash: '上海市普陀区金沙江路 1518 弄'
-        // },
-        // {
-        //   fileName: '2016-05-04',
-        //   createTime: '王小虎',
-        //   fileHash: '上海市普陀区金沙江路 1517 弄'
-        // },
-        // {
-        //   fileName: '2016-05-01',
-        //   createTime: '王小虎',
-        //   fileHash: '上海市普陀区金沙江路 1519 弄'
-        // },
-        // {
-        //   fileName: '2016-05-03',
-        //   createTime: '王小虎',
-        //   fileHash: '上海市普陀区金沙江路 1516 弄'
-        // }
-      ],
+      tableData: [],
       domain: process.env.VUE_APP_DOMAIN
     }
   },
@@ -179,15 +158,6 @@ export default {
     },
     handleChange(file, fileList) {
       console.log(file)
-      // this.localFile = file.raw
-      // let reader = new FileReader()
-      // reader.readAsDataURL(this.localFile) // 这里也可以直接写参数event.raw
-
-      // 转换成功后的操作，reader.result即为转换后的DataURL ，
-      // 它不需要自己定义，你可以console.log(reader.result)看一下
-      // reader.onload = () => {
-      //   console.log(reader.result)
-      // }
     },
     fileupload(params) {
       this.fileObject = params.file
