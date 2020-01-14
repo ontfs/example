@@ -1,21 +1,21 @@
-/File-FrontEnd/.DS_Store
-/File-FrontEnd/node_modules
-/File-FrontEnd/dist
+/File_FrontEnd/.DS_Store
+/File_FrontEnd/node_modules
+/File_FrontEnd/dist
 
 # local env files
-/File-FrontEnd/.env.local
-/File-FrontEnd/.env.*.local
+/File_FrontEnd/.env.local
+/File_FrontEnd/.env.*.local
 
 # Log files
-/File-FrontEnd/npm-debug.log*
-/File-FrontEnd/yarn-debug.log*
-/File-FrontEnd/yarn-error.log*
+/File_FrontEnd/npm-debug.log*
+/File_FrontEnd/yarn-debug.log*
+/File_FrontEnd/yarn-error.log*
 
 # Editor directories and files
-/File-FrontEnd/.idea
-/File-FrontEnd/.vscode
-/File-FrontEnd/*.suo
-/File-FrontEnd*.ntvs*
-/File-FrontEnd*.njsproj
-/File-FrontEnd*.sln
-/File-FrontEnd*.sw?
+/File_FrontEnd/.idea
+/File_FrontEnd/.vscode
+/File_FrontEnd/*.suo
+/File_FrontEnd*.ntvs*
+/File_FrontEnd*.njsproj
+/File_FrontEnd*.sln
+/File_FrontEnd*.sw?
