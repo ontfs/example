@@ -1,6 +1,6 @@
 /File_FrontEnd/.DS_Store
-/File_FrontEnd/node_modules
-/File_FrontEnd/dist
+node_modules
+dist
 
 # local env files
 /File_FrontEnd/.env.local
