@@ -166,25 +166,45 @@ public class DataServiceImpl implements DataService {
     }
 
     @Override
-    public Map<String, Object> download(String action, String path) throws Throwable {
+    public void download(String action, String path) throws Throwable {
         File localFile = new File(path);
         File parentFile = localFile.getParentFile();
+        if (!path.startsWith(configParam.BASE_FILE_PATH)) {
+            throw new OntFsException(action, ErrorInfo.NOT_EXIST.descCN(), ErrorInfo.NOT_EXIST.descEN(), ErrorInfo.NOT_EXIST.code());
+        }
         if (!localFile.exists()) {
             throw new OntFsException(action, ErrorInfo.NOT_EXIST.descCN(), ErrorInfo.NOT_EXIST.descEN(), ErrorInfo.NOT_EXIST.code());
         }
 
         InputStream inputStream = new FileInputStream(localFile);
 
-        // 删除本地文件
-        localFile.delete();
-        parentFile.delete();
-        parentFile.getParentFile().delete();
+        resp.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
+        resp.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode(localFile.getName(), "UTF-8"));
 
-        // 返回结果
-        Map<String, Object> result = new HashMap<>();
-        result.put("inputStream", inputStream);
-        result.put("fileName", localFile.getName());
-        return result;
+        OutputStream outputStream = resp.getOutputStream();
+        try {
+            if (inputStream != null) {
+                int len = -1;
+                byte[] b = new byte[8096];
+                while ((len = inputStream.read(b)) != -1) {
+                    outputStream.write(b, 0, len);
+                }
+            }
+            outputStream.close();
+        } catch (Exception e) {
+            log.error("catch exception:", e);
+            try {
+                outputStream.close();
+            } catch (Exception er) {
+
+            }
+        } finally {
+            // 删除本地文件
+            inputStream.close();
+            localFile.delete();
+            parentFile.delete();
+            parentFile.getParentFile().delete();
+        }
     }
 
     private Object uploadFileToOntFs(String path, long size, long expireTime, String password) throws Throwable {

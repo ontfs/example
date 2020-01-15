@@ -16,6 +16,6 @@ public interface DataService {
 
     String downloadUrl(String action, String fileHash, String password) throws Throwable;
 
-    Map<String, Object> download(String action, String path) throws Throwable;
+    void download(String action, String path) throws Throwable;
 
 }

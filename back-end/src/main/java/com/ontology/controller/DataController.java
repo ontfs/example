@@ -63,24 +63,7 @@ public class DataController {
     public void download(@RequestParam String path, HttpServletResponse resp) throws Throwable {
         String action = "download";
         log.info("========start:{}", action);
-        Map<String, Object> result = dataService.download(action, path);
-        String fileName = (String) result.get("fileName");
-        InputStream inputStream = (InputStream) result.get("inputStream");
-
-        resp.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
-//        resp.setCharacterEncoding("GBK");
-        resp.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode(fileName,"UTF-8"));
-
-        if (inputStream != null) {
-            OutputStream outputStream = resp.getOutputStream();
-            int len = -1;
-            byte[] b = new byte[1024];
-            while ((len = inputStream.read(b)) != -1) {
-                outputStream.write(b, 0, len);
-            }
-            inputStream.close();
-            outputStream.close();
-        }
+        dataService.download(action, path, resp);
     }
 
 }
