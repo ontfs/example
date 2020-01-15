@@ -37,6 +37,7 @@
           >
         </div>
       </div>
+      <div class="link" @click="openPage(github)">Visit us on GitHub</div>
     </el-card>
   </div>
 </template>
@@ -45,6 +46,7 @@ import { Register } from '@/api/role'
 export default {
   data() {
     return {
+      github: 'https://github.com/ontfs/example',
       ruleForm: {
         userName: '',
         password: ''
@@ -120,6 +122,9 @@ export default {
       } catch (error) {
         return error
       }
+    },
+    openPage(url) {
+      window.open(url)
     }
   }
 }
@@ -132,6 +137,18 @@ export default {
     position: absolute;
     left: 100px;
     top: 60px;
+  }
+}
+.link {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    color: #000;
   }
 }
 </style>
