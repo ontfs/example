@@ -97,7 +97,7 @@ export default {
         let params = { ...this.ruleForm }
         params.password = this.$utils.default.Encrypt(params.password)
         let apires = await Register(params)
-        console.log(apires)
+        // console.log(apires)
         const { desc, result } = apires
         if (desc === 'SUCCESS') {
           this.$message({

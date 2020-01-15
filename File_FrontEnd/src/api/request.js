@@ -35,7 +35,6 @@ service.interceptors.response.use(
     console.error('err' + error) // for debug
     if (rest) {
       if (rest.status === 400) {
-        // 提示错误
         Message({ message: rest.data.desc, type: 'error' })
       }
     } else {
