@@ -9,38 +9,56 @@
       <el-button type="text" @click="logOut">Sign out</el-button>
     </el-card>
     <el-card class="home_card">
-      <div class="file_wrap">
-        <el-form ref="form" :rules="rules" :model="form" label-width="180px">
-          <el-form-item label="File encryption code" prop="password">
-            <el-input
-              autocomplete="off"
-              type="password"
-              v-model="form.password"
-              placeholder="Create an encryption code"
-            ></el-input>
-          </el-form-item>
-          <el-form-item label="File">
-            <el-upload
-              ref="upload"
-              class="upload-demo"
-              action
-              :on-change="handleChange"
-              :on-remove="handleRemove"
-              :file-list="fileList"
-              :http-request="fileupload"
-              :limit="1"
-              :before-upload="beforeAvatarUpload"
-            >
-              <el-button size="small" type="primary">Select</el-button>
-              <div slot="tip" class="el-upload__tip">
-                Good news! You can upload files up to 2 MB at a time.
-              </div>
-            </el-upload>
-          </el-form-item>
-        </el-form>
-        <el-button @click="submitForm('form')" size="small" type="primary"
-          >Upload</el-button
-        >
+      <div class="main_msg">
+        <div class="file_wrap">
+          <el-form ref="form" :rules="rules" :model="form" label-width="180px">
+            <el-form-item label="File encryption code" prop="password">
+              <el-input
+                autocomplete="off"
+                type="password"
+                v-model="form.password"
+                placeholder="Create an encryption code"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="File">
+              <el-upload
+                ref="upload"
+                class="upload-demo"
+                action
+                :on-change="handleChange"
+                :on-remove="handleRemove"
+                :file-list="fileList"
+                :http-request="fileupload"
+                :limit="1"
+                :before-upload="beforeAvatarUpload"
+              >
+                <el-button size="small" type="primary">Select</el-button>
+                <div slot="tip" class="el-upload__tip">
+                  Good news! You can upload files up to 2 MB at a time.
+                </div>
+              </el-upload>
+            </el-form-item>
+          </el-form>
+          <el-button @click="submitForm('form')" size="small" type="primary"
+            >Upload</el-button
+          >
+        </div>
+        <div class="img_wrap">
+          <div class="img_item">
+            <div class="img_tips">Upload file interaction diagram</div>
+            <viewer>
+              <img src="../assets/fileupload-en.jpeg" />
+            </viewer>
+            <!-- <img src="../assets/fileupload-en.jpeg" alt="" /> -->
+          </div>
+          <div class="img_item" style="margin-top: 20px;">
+            <div class="img_tips">Download file interaction diagram</div>
+            <viewer>
+              <img src="../assets/filedownload-en.jpeg" />
+            </viewer>
+            <!-- <img src="../assets/filedownload-en.jpeg" alt="" /> -->
+          </div>
+        </div>
       </div>
     </el-card>
     <el-card class="home_card">
@@ -328,9 +346,28 @@ export default {
     }
   }
 
+  .main_msg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .img_wrap {
+      width: 100%;
+      max-width: 600px;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    .img_tips {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
   .file_wrap {
     width: 100%;
     max-width: 400px;
+
     .upload-demo {
       height: 150px;
     }
