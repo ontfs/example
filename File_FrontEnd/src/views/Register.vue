@@ -137,6 +137,7 @@ export default {
     position: absolute;
     left: 100px;
     top: 60px;
+    width: 146px;
   }
 }
 .link {
